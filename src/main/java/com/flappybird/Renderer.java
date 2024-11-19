@@ -1,4 +1,4 @@
-package flappyBird;//same package as the flappy bird class
+package com.flappybird;//same package as the flappy bird class
 
 import java.awt.Graphics;
 
