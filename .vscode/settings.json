@@ -1,0 +1,21 @@
+{
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+    "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-21",
+      "path": "/usr/lib/jvm/java-21-openjdk-amd64",
+      "default": true
+    }
+  ],
+    "java.import.gradle.enabled": true,
+    "java.import.maven.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.test.config": {
+        "name": "JUnit5",
+        "workingDirectory": "${workspaceFolder}",
+        "vmArgs": ["--enable-preview"],
+        "args": [""],
+        "env": {}
+    }
+}

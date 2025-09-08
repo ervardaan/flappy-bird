@@ -31,14 +31,15 @@ public class FlappyBirdTest {
     // Test if the bird's position is set correctly
     @Test
     public void testBirdPosition() {
-        int initialYPosition = flappyBird.getBird().getY();
-        assertEquals(100, initialYPosition);  // Assuming initial Y position is 100
+        int initialYPosition = (int) flappyBird.getBird().getY();
+        assertEquals(390, initialYPosition);  // Matches constructor logic
     }
+
     
     // Test the bird's jump method (if implemented)
     @Test
     public void testBirdJump() {
-        int initialYPosition = flappyBird.getBird().getY();
+        int initialYPosition = (int) flappyBird.getBird().getY();
         flappyBird.jump();
         assertTrue(flappyBird.getBird().getY() < initialYPosition, "Bird should move up on jump");
     }
@@ -47,7 +48,7 @@ public class FlappyBirdTest {
     @Test
     public void testGameOverAfterCollision() {
         // Mocking the bird and pipe interaction
-        flappyBird.getBird().setY(250);  // Bird at a position where it collides with pipe
+        flappyBird.setBirdY(250);  // Bird at a position where it collides with pipe
         flappyBird.checkCollisions();    // Check for collision
         
         // After collision, the game should be in a "Game Over" state
@@ -72,8 +73,8 @@ public class FlappyBirdTest {
     // Test the bird's speed or falling rate (in case of gravity)
     @Test
     public void testBirdGravityEffect() {
-        int initialSpeed = flappyBird.getBird().getSpeed();  // Assuming there's a speed property
+        int initialSpeed = flappyBird.getBirdSpeed();
         flappyBird.applyGravity();
-        assertTrue(flappyBird.getBird().getSpeed() > initialSpeed, "Bird's speed should increase due to gravity");
+        assertTrue(flappyBird.getBirdSpeed() > initialSpeed, "Bird's speed should increase due to gravity");
     }
 }

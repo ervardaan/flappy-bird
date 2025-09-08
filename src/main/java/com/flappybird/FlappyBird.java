@@ -301,4 +301,56 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener//c
 
 	}
 
+	    // --- Getters for testing ---
+    public int getScore() {
+        return score;
+    }
+
+    public Rectangle getBird() {
+        return bird;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    // --- Methods for testing ---
+    public void checkCollisions() {
+        for (Rectangle column : columns) {
+            if (column.intersects(bird)) {
+                gameOver = true;
+                return;
+            }
+        }
+        if (bird.y > HEIGHT - 120 || bird.y < 0) {
+            gameOver = true;
+        }
+    }
+
+    public void updateScore() {
+        score++;
+    }
+
+    // Wrapper for repaint logic (since test uses render())
+    public void render(Graphics g) {
+        repaint(g);
+    }
+
+    public void applyGravity() {
+        if (yMotion < 15) {
+            yMotion += 2;
+        }
+        bird.y += yMotion;
+    }
+
+    // Helper for tests: expose vertical motion
+    public int getBirdSpeed() {
+        return yMotion;
+    }
+
+	public void setBirdY(int y) {
+    	bird.y = y;
+	}
+
+
 }
